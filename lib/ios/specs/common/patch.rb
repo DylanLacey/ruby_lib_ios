@@ -16,7 +16,7 @@ describe 'common/patch.rb' do
     # t 'value' do; end # Doesn't work on Android
 
     t 'name' do
-      first_s_text.name.must_equal 'API Demos'
+      first_s_text.name.must_equal 'UICatalog'
     end
 
     # t 'tag_name' do; end # Doesn't work on Android
@@ -35,7 +35,7 @@ describe 'common/patch.rb' do
       rescue Exception => e;
         value = e.message
       end
-      value.must_equal 'Strategy id is not valid.'
+      value.must_equal "Sorry, we don't support the 'id' locator strategy yet"
     end
   end
 end

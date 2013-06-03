@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+=begin
 describe 'common/element/button' do
   before_first do
     # nav to buttons activity
@@ -55,3 +55,4 @@ describe 'common/element/button' do
     button_num('in', 2).name.must_equal 'Zoom in'
   end
 end
+=end

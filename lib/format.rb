@@ -1,12 +1,12 @@
 # encoding: utf-8
 # helper code useful for writing and verifying tests using Pry
 list = <<TXT
-find
-text
-texts
-name
-names
-scroll_to
+alert_click
+alert_text
+alert_accept
+alert_accept_text
+alert_dismiss
+alert_dismiss_text
 TXT
 
 list.split("\n").each do |method|

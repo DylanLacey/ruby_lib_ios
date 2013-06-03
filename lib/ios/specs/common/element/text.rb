@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+=begin
 describe 'common/element/text' do
   t 's_texts' do
     act = s_texts
@@ -32,3 +32,4 @@ describe 'common/element/text' do
     s_text_exact('API Demos').text.must_equal 'API Demos'
   end
 end
+=end
