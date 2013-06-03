@@ -9,7 +9,7 @@ ruby_lib's iOS tests. Requires `Ruby 1.9.3` or better.
 - `arc` Opens the Appium Ruby Console (arc). Enables interactive testing.
   - `gem install appium_console` if it's not installed already.
 
-UICatalog6.1 is from [appium/appium](https://github.com/appium/appium/blob/master/assets/UICatalog6.1.app.zip)
+`UICatalog6.1` is from [appium/appium](https://github.com/appium/appium/blob/master/assets/UICatalog6.1.app.zip)
 
 #### Documentation
 
