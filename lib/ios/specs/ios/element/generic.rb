@@ -1,6 +1,10 @@
 # encoding: utf-8
 describe 'ios/element/generic' do
-  before_first { screen.must_equal catalog }
+  before_first do
+    screen.must_equal catalog
+    mobile :flick, endX: 0.5, endY: 0.9 # scroll up
+  end
+
   def exp_text
     'TextFields, Uses of UITextField'
   end

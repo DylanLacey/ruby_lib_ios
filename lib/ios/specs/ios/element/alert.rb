@@ -13,6 +13,8 @@ describe 'ios/element/alert' do
 
   after_last do
     back
+    screen.must_equal catalog
+    mobile :flick, endX: 0.5, endY: 0.9
   end
 
   before do
