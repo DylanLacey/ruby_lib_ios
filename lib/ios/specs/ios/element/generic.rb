@@ -5,27 +5,31 @@ describe 'ios/element/generic' do
     'TextFields, Uses of UITextField'
   end
 
+  def search_text
+    'TextFields'
+  end
+
   t 'find' do
-    find('text').text.must_equal exp_text
+    find(search_text).text.must_equal exp_text
   end
 
   t 'finds' do
-    finds('text').first.text.must_equal exp_text
+    finds(search_text).first.text.must_equal exp_text
   end
 
   t 'text' do
-    text('text').text.must_equal exp_text
+    text(search_text).text.must_equal exp_text
   end
 
   t 'texts' do
-    texts('text').first.text.must_equal exp_text
+    texts(search_text).first.text.must_equal exp_text
   end
 
   t 'name' do
-    name('text').name.must_equal exp_text
+    name(search_text).name.must_equal exp_text
   end
 
   t 'names' do
-    names('text').first.name.must_equal exp_text
+    names(search_text).first.name.must_equal exp_text
   end
 end
