@@ -1,26 +1,29 @@
 # encoding: utf-8
-=begin
+
 describe 'common/element/text' do
   t 's_texts' do
-    act = s_texts
-    exp = ['API Demos', 'Accessibility', 'Animation', 'App', 'Content', 'Graphics', 'Media', 'NFC', 'OS', 'Preference', 'Text', 'Views']
-    act.must_equal exp
+    exp = [ 'UICatalog', 'Buttons, Various uses of UIButton', 'Controls, Various uses of UIControl', 'TextFields, Uses of UITextField', 'SearchBar, Use of UISearchBar', 'TextView, Use of UITextField', 'Pickers, Uses of UIDatePicker, UIPickerView', 'Images, Use of UIImageView', 'Web, Use of UIWebView', 'Segment, Various uses of UISegmentedControl', 'Toolbar, Uses of UIToolbar', 'Alerts, Various uses of UIAlertView, UIActionSheet', 'Transitions, Shows UIViewAnimationTransitions']
+    s_texts.must_equal exp
   end
 
   t 'e_s_texts' do
-    e_s_texts.length.must_equal 12
+    e_s_texts.length.must_equal 13
+  end
+
+  def ui_catalog
+    'UICatalog'
   end
 
   t 'first_s_text' do
-    first_s_text.text.must_equal 'API Demos'
+    first_s_text.text.must_equal ui_catalog
   end
 
   t 'last_s_text' do
-    last_s_text.text.must_equal 'Views'
+    last_s_text.text.must_equal 'Transitions, Shows UIViewAnimationTransitions'
   end
 
   t 's_text' do
-    s_text('mos').text.must_equal 'API Demos'
+    s_text('mat').text.must_equal 'Transitions, Shows UIViewAnimationTransitions'
   end
 
   t 's_text_exact' do
@@ -29,7 +32,6 @@ describe 'common/element/text' do
     act.must_be_nil
 
     # should pass
-    s_text_exact('API Demos').text.must_equal 'API Demos'
+    s_text_exact(ui_catalog).text.must_equal ui_catalog
   end
 end
-=end
