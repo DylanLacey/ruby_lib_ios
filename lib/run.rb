@@ -11,6 +11,17 @@ Run only the view album test:
   ruby run.rb ios view_album
 =end
 
+## common methods
+
+def screen
+  tag('navigationBar').name
+end
+
+def catalog
+  'UICatalog'
+end
+##
+
 load_appium_txt file: File.expand_path('..',__FILE__), verbose: true
 
 dir = File.expand_path '..', __FILE__

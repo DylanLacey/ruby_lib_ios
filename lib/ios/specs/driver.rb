@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 describe 'driver.rb' do
+  before_first { screen.must_equal catalog }
+
   t 'load_appium_txt' do
     # __FILE__ is '(eval)' so use env var set by the Rakefile
     path = ENV['APPIUM_TXT']

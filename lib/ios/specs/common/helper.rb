@@ -1,5 +1,6 @@
 # encoding: utf-8
 describe 'common/helper.rb' do
+  before_first { screen.must_equal catalog }
   # wait is a success unless an error is raised
   # max_wait=0 is infinity to use 0.1
   t 'wait' do

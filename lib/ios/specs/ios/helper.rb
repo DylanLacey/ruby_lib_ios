@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 describe 'ios/helper' do
+  before_first { screen.must_equal catalog }
+
   t 'find_eles_attr' do
     find_eles_attr(:text, :text).length.must_equal 13
   end

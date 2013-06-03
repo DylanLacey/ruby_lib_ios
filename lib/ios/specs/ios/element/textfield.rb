@@ -1,11 +1,14 @@
 # encoding: utf-8
 describe 'ios/element/textfield' do
   before_first do
+    screen.must_equal catalog
     s_text('textfield').click
+    screen.must_equal 'TextFields'
   end
 
   after_last do
     back
+    screen.must_equal catalog
   end
 
   t 'textfields' do

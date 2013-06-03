@@ -2,6 +2,7 @@
 describe 'ios/element/alert' do
 
   before_first do
+    screen.must_equal catalog
     # scroll to alerts
     mobile :flick, endX: 0.5, endY: 0.0
     wait_true { s_text('alerts').click; tag('navigationBar').name == 'Alerts' } # wait for true

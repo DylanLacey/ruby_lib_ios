@@ -1,6 +1,6 @@
 # encoding: utf-8
 describe 'ios/element/generic' do
-
+  before_first { screen.must_equal catalog }
   def exp_text
     'TextFields, Uses of UITextField'
   end

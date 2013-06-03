@@ -7,6 +7,7 @@
 =end
 
 describe 'common/patch.rb' do
+  before_first { screen.must_equal catalog }
 # Attributes are busted in Android.
 # Blocked on https://github.com/appium/appium/issues/628
   describe 'Selenium::WebDriver::Element methods' do

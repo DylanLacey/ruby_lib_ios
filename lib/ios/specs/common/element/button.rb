@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 describe 'common/element/button' do
+  before_first { screen.must_equal catalog }
   before_first do
     # nav to buttons activity
     text('buttons').click

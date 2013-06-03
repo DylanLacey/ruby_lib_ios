@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 describe 'ios/patch.rb' do
+  before_first { screen.must_equal catalog }
+
   t 'type' do
     # nav to textfield
     s_text('textfields').click
