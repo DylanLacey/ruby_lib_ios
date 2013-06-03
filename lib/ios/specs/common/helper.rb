@@ -42,20 +42,18 @@ describe 'common/helper.rb' do
   end
 
   # t 'id' # id is for Selendroid
-=begin
-  # todo: fix
+
   t 'back' do
     # start page
     tag('navigationBar').name.must_equal 'UICatalog'
     # nav to new page.
-    s_text('buttons').click
+    wait_true { s_text('buttons').click; tag('navigationBar').name == 'Buttons' }
     tag('navigationBar').name.must_equal 'Buttons'
     # go back
     back
     # start page
     tag('navigationBar').name.must_equal 'UICatalog'
   end
-=end
 
   t 'session_id' do
     session_id.must_match /\h{8}-\h{4}-\h{4}-\h{4}-\h{12}/
