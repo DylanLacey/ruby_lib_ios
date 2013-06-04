@@ -3,6 +3,7 @@ describe 'ios/element/generic' do
   before_first do
     screen.must_equal catalog
     mobile :flick, endX: 0.5, endY: 0.9 # scroll up
+    sleep 1
   end
 
   def exp_text

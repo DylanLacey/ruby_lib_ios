@@ -5,16 +5,19 @@ describe 'ios/element/alert' do
     screen.must_equal catalog
     # scroll to alerts
     mobile :flick, endX: 0.5, endY: 0.0
+    sleep 1
     wait_true { s_text('alerts').click; tag('navigationBar').name == 'Alerts' } # wait for true
     tag('navigationBar').name.must_equal 'Alerts' # assert
     # swipe to ok-cancel alert
     mobile :flick, endX: 0.5, endY: 0.0
+    sleep 1
   end
 
   after_last do
     back
     screen.must_equal catalog
     mobile :flick, endX: 0.5, endY: 0.9
+    sleep 1
   end
 
   before do

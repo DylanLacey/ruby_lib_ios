@@ -2,7 +2,7 @@
 describe 'ios/element/textfield' do
   before_first do
     screen.must_equal catalog
-    s_text('textfield').click
+    wait_true { s_text('textfield').click; screen == 'TextFields' } # wait for screen transition
     screen.must_equal 'TextFields'
   end
 
