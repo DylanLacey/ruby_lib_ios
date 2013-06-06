@@ -16,6 +16,7 @@ ruby_lib's iOS tests. Requires `Ruby 1.9.3` or better.
 - [Installing Appium on OS X](https://github.com/appium/ruby_console/blob/master/osx.md)
 - [Overview](https://github.com/appium/ruby_lib/blob/master/docs/docs.md) 
 - [iOS methods](https://github.com/appium/ruby_lib/blob/master/docs/ios_docs.md)
+- [Minitest Expectations](http://ruby-doc.org/stdlib-1.9.3/libdoc/minitest/spec/rdoc/MiniTest/Expectations.html)
 
 --
 
