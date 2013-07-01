@@ -2,6 +2,14 @@
 require 'rubygems'
 require 'rake'
 
+def bash cmd
+  begin
+    sh cmd
+  rescue
+    Rake::Task['install'].execute
+    sh cmd
+  end
+end
 
 # Run a single test with:
 # rake ios['ios/element/generic']
@@ -21,7 +29,7 @@ task :ios, :args, :test_file do |args, test_file|
   puts "Rake appium.txt path is: #{path}"
   cmd = 'bundle exec ruby ./lib/run.rb ios'
   cmd += %Q( "#{test_file}") if test_file
-  sh cmd
+  bash cmd
 end
 
 desc 'Run bundle install'
