@@ -2,12 +2,18 @@
 require 'rubygems'
 require 'rake'
 
+# Run sh and ignore exception
+def run_sh cmd
+  begin; sh cmd; rescue; end
+end
+
+# Run cmd. On failure run install and try again.
 def bash cmd
   begin
     sh cmd
   rescue
     Rake::Task['install'].execute
-    sh cmd
+    run_sh cmd
   end
 end
 
