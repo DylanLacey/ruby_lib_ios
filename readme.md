@@ -1,4 +1,4 @@
-ruby_lib_ios
+ruby_lib_ios [![Dependency Status](https://gemnasium.com/appium/ruby_lib_ios.png)](https://gemnasium.com/appium/ruby_lib_ios)
 =====================
 
 ruby_lib's iOS tests. Requires `Ruby 1.9.3` or better.
