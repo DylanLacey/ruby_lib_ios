@@ -9,11 +9,13 @@ end
 
 # Run cmd. On failure run install and try again.
 def bash cmd
-  begin
-    sh cmd
-  rescue
-    Rake::Task['install'].execute
-    run_sh cmd
+  sh cmd do |successful, result|
+    # exitstatus 7 means bundle install failed
+    # exitstatus 1 means the test failed
+    if !successful && result.exitstatus === 7
+      Rake::Task['install'].execute
+      run_sh cmd
+    end
   end
 end
 
