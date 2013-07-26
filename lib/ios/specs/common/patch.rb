@@ -22,7 +22,7 @@ describe 'common/patch.rb' do
 
     # t 'tag_name' do; end # Doesn't work on Android
 
-    t 'location_rel' do # iOS Only. Android is blocked on https://github.com/appium/appium/issues/627
+    t 'location_rel' do
       loc = first_s_text.location_rel
       loc.x.class.must_equal Float
       loc.y.class.must_equal Float
