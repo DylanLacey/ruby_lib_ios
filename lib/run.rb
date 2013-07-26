@@ -11,6 +11,10 @@ Run only the view album test:
   ruby run.rb ios view_album
 =end
 
+# Sanity check
+a = OpenStruct.new x: 'ok'
+raise 'x issue' unless a.x == 'ok'
+
 ## common methods
 
 def screen
