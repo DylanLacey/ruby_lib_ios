@@ -69,7 +69,7 @@ else
 end
 
 # Exit after tests.
-MiniTest::Unit.after_tests { x }
+Minitest::Unit.after_tests { x }
 
 =begin
 # Update sauce after all tests complete
