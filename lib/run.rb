@@ -1,6 +1,7 @@
 # encoding: utf-8
-require File.expand_path '../helper.rb', __FILE__
-
+require 'rubygems'
+require 'test_runner'
+require 'spec'
 =begin
 node server.js -V --fast-reset --without-delay
 
@@ -18,7 +19,7 @@ raise 'x issue' unless a.x == 'ok'
 ## common methods
 
 def screen
-  tag('navigationBar').name
+  $driver.find_element(:tag_name, 'navigationBar').name
 end
 
 def catalog
@@ -68,13 +69,16 @@ else
   end
 end
 
-# Exit after tests.
-Minitest::Unit.after_tests { x }
+# --
 
-=begin
-# Update sauce after all tests complete
-MiniTest::Unit.after_tests do
-  # $passed is set in after_suites
-  update_sauce passed: $passed
+# No dots
+class Minitest::ProgressReporter
+  def record result
+  end
 end
-=end
+
+# Run Minitest
+Minitest.run_specs
+
+# Exit after tests.
+Minitest.after_run { x }

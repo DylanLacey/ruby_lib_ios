@@ -30,8 +30,8 @@ describe 'driver.rb' do
       app_name.must_be_nil
     end
 
-    t 'selendroid attr' do
-      selendroid.must_equal false
+    t 'device attr' do
+      device.must_equal :ios
     end
 
     # t 'app_package attr' do # iOS does not have this attr
@@ -48,10 +48,6 @@ describe 'driver.rb' do
 
     t 'port attr' do
       port.must_equal 4723
-    end
-
-    t 'os attr' do
-      os.must_equal :ios
     end
 
     t 'debug attr' do
@@ -90,11 +86,9 @@ describe 'driver.rb' do
       }
     end
 
-    t 'ios_capabilities & capabilities' do
+    # capabilities calls ios_capabilities when device is :ios
+    t 'capabilities' do
       exp = expected_ios_capabilities
-      act = ios_capabilities
-      act[:app] = File.basename act[:app]
-      act.must_equal exp
 
       act = capabilities
       act[:app] = File.basename act[:app]
