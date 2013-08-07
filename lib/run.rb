@@ -41,7 +41,7 @@ puts 'Start driver'
 use_selendroid = device == 'selendroid'
 puts "Use selendroid? #{use_selendroid}"
 
-Appium::Driver.new(debug: true, selendroid: use_selendroid, wait: 1).start_driver
+Appium::Driver.new(debug: true, wait: 1).start_driver
 
 =begin
 # Android doesn't like to be reset before booting up
@@ -71,14 +71,6 @@ else
     puts "  #{File.basename(test, '.*')}"
     require test
     test_files << test
-  end
-end
-
-# --
-
-# No dots
-class Minitest::ProgressReporter
-  def record result
   end
 end
 
