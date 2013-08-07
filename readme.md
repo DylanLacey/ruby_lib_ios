@@ -21,6 +21,6 @@ ruby_lib's iOS tests. Requires `Ruby 1.9.3` or better.
 --
 
 ```java
-Finished in 1 min 20 secs
-88 tests, 100 assertions
+Finished in 1 min 15 secs
+87 runs, 98 assertions, 0 failures, 0 errors, 0 skips
 ```
