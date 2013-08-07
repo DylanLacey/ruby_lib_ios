@@ -52,20 +52,25 @@ case device
 end
 =end
 
+test_files = []
+
 if one_test
   one_test = File.join(dir, test_dir + 'specs/', one_test)
   # require support (common.rb)
   Dir.glob(File.join dir, test_dir + '/*.rb') do |test|
     require test
+    test_files << test
   end
   puts "Loading one test: #{one_test}"
   require one_test
+  test_files << one_test
 else
   # require all
   Dir.glob(File.join dir, test_dir + '**/*.rb') do |test|
     # load all tests
     puts "  #{File.basename(test, '.*')}"
     require test
+    test_files << test
   end
 end
 
@@ -77,8 +82,8 @@ class Minitest::ProgressReporter
   end
 end
 
-# Run Minitest
-Minitest.run_specs
+# Run Minitest. Provide test file array for tracing.
+Minitest.run_specs({ :trace => test_files })
 
 # Exit after tests.
 Minitest.after_run { x }
