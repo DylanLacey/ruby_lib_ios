@@ -21,7 +21,8 @@ describe 'ios/helper' do
   # t 'get_page' do # prints to stdout
 
   t 'get_page_class' do
-    get_page_class.split("\n").length.must_equal 8
+    # 8 local. 9 on sauce.
+    get_page_class.split("\n").length.must_be :>=, 8
   end
 
   # t 'page' do # prints to stdout
