@@ -4,6 +4,9 @@ describe 'driver.rb' do
   before_first { screen.must_equal catalog }
 
   t 'load_appium_txt' do
+    # skip this test if we're using Sauce
+    # the storage API doesn't have an on disk file
+    skip if ENV['UPLOAD_FILE'] && ENV['SAUCE_USERNAME']
     # __FILE__ is '(eval)' so use env var set by the Rakefile
     path = ENV['APPIUM_TXT']
     puts "appium.txt path in test is: #{path}"
