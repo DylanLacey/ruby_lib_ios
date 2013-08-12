@@ -81,4 +81,4 @@ end
 Minitest.run_specs({ :trace => test_files })
 
 # Exit after tests.
-Minitest.after_run { x }
+Minitest.after_run { $driver.x if $driver }
