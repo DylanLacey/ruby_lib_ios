@@ -41,6 +41,9 @@ puts 'Start driver'
 use_selendroid = device == 'selendroid'
 puts "Use selendroid? #{use_selendroid}"
 
+
+ENV['APP_PATH'] = ENV['SAUCE_PATH'] if ENV['SAUCE_USERNAME'] && ENV['SAUCE_ACCESS_KEY']
+
 Appium::Driver.new(debug: true, wait: 1).start_driver
 
 =begin
