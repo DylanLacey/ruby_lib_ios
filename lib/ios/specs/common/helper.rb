@@ -57,7 +57,8 @@ describe 'common/helper.rb' do
   end
 
   t 'session_id' do
-    session_id.must_match /\h{8}-\h{4}-\h{4}-\h{4}-\h{12}/
+    # Sauce doesn't return '-' so make them optional.
+    session_id.must_match /\h{8}-?\h{4}-?\h{4}-?\h{4}-?\h{12}/
   end
 
   t 'xpath' do
