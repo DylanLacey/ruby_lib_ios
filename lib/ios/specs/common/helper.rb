@@ -138,4 +138,8 @@ describe 'common/helper.rb' do
   t 'find_names' do
     find_names(uibutton_text).first.name.must_equal uibutton_text
   end
+
+  t 'id' do
+    id 'ButtonsExplain' # 'Various uses of UIButton'
+  end
 end

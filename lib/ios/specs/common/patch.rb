@@ -36,11 +36,11 @@ describe 'common/patch.rb' do
       value = ''
       begin
         set_wait 0
-        find_element(:id, 'ok')
+        find_element(:css, 'ok')
       rescue Exception => e;
         value = e.message
       end
-      value.must_equal "Sorry, we don't support the 'id' locator strategy yet"
+      value.must_equal "Sorry, we don't support the 'css selector' locator strategy yet"
     end
   end
 end

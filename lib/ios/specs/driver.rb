@@ -80,9 +80,8 @@ describe 'driver.rb' do
 
     def expected_ios_capabilities
       {
-          browserName: 'iOS 6.0',
           platform: 'Mac 10.8',
-          version: '6.0',
+          version: '6.1',
           device: 'iPhone Simulator',
           name: 'Ruby Console iOS Appium',
           app: 'UICatalog.app'
