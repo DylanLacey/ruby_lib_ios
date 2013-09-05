@@ -1,13 +1,14 @@
 # encoding: utf-8
 describe 'common/helper.rb' do
   before_first { screen.must_equal catalog }
+  wait_time = [0.2, 0.2] # max_wait, interval
   # wait is a success unless an error is raised
   # max_wait=0 is infinity to use 0.1
   t 'wait' do
     # successful wait should not error
     message = nil
     begin
-      wait(0.1,0) { true }
+      wait(*wait_time) { true }
     rescue Exception => e
       message = e.message
     end
@@ -15,7 +16,7 @@ describe 'common/helper.rb' do
 
     # failed wait should error
     begin
-      wait(0.1,0) { raise 'error' }
+      wait(*wait_time) { raise 'error' }
     rescue Exception => e
       message = e.message
     end
@@ -27,7 +28,7 @@ describe 'common/helper.rb' do
     # successful wait should not error
     message = nil
     begin
-      wait_true(0.1,0) { true }
+      wait_true(*wait_time) { true }
     rescue Exception => e
       message = e.message
     end
@@ -35,7 +36,7 @@ describe 'common/helper.rb' do
 
     # failed wait should error
     begin
-      wait_true(0.1,0) { false }
+      wait_true(*wait_time) { false }
     rescue Exception => e
       message = e.message
     end
