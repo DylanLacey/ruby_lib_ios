@@ -55,29 +55,37 @@ case device
 end
 =end
 
-test_files = []
+trace_files = []
 
 if one_test
   one_test = File.join(dir, test_dir + 'specs/', one_test)
   # require support (common.rb)
   Dir.glob(File.join dir, test_dir + '/*.rb') do |test|
     require test
-    test_files << test
+    trace_files << test
   end
   puts "Loading one test: #{one_test}"
   require one_test
-  test_files << one_test
+  trace_files << one_test
 else
   # require all
   Dir.glob(File.join dir, test_dir + '**/*.rb') do |test|
     # load all tests
+    trace_files << test
     puts "  #{File.basename(test, '.*')}"
     require test
-    test_files << test
   end
 end
+
+trace_files.map! do |f|
+  f = File.expand_path f
+  # ensure all traced files end in .rb
+  f = File.join(File.dirname(f), File.basename(f, '.*') + '.rb')
+  f
+end
+puts "Tracing: #{trace_files}"
 
 # Exit after tests.
 Minitest.after_run { $driver.x if $driver }
 # Run Minitest. Provide test file array for tracing.
-Minitest.run_specs({ :trace => test_files })
+Minitest.run_specs({ :trace => trace_files })

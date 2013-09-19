@@ -99,12 +99,12 @@ describe 'common/helper.rb' do
   end
 
   t 'find_ele_by_attr_include' do
-    el_text = find_ele_by_attr_include(:text, :text,  'button').text
+    el_text = find_ele_by_attr_include(:text, :text, 'button').text
     el_text.must_equal uibutton_text
   end
 
   t 'find_eles_by_attr_include' do
-    ele_count = find_eles_by_attr_include(:text, :text,  'e').length
+    ele_count = find_eles_by_attr_include(:text, :text, 'e').length
     ele_count.must_equal 12
   end
 
@@ -142,5 +142,22 @@ describe 'common/helper.rb' do
 
   t 'id' do
     id 'ButtonsExplain' # 'Various uses of UIButton'
+  end
+
+  t 'invalid id should error' do
+    begin
+      id 'does not exist'
+    rescue Exception => e
+      message = e.message
+    end
+    message.must_equal 'Invalid id `does not exist`'
+
+    # resource id should error on ios
+    begin
+      id 'android:id/text1'
+    rescue Exception => e
+      message = e.message
+    end
+    message.must_equal 'Invalid id `android:id/text1`'
   end
 end
