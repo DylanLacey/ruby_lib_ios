@@ -25,7 +25,8 @@ describe 'driver.rb' do
 
     t 'app_path attr' do
       apk_name = File.basename app_path
-      apk_name.must_equal 'UICatalog.app'
+      valid = apk_name == 'sauce-storage:UICatalog6.1.app.zip' || apk_name == 'UICatalog.app'
+      valid.must_equal true
     end
 
     # Only used for Sauce Labs
