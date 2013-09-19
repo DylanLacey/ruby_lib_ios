@@ -55,7 +55,11 @@ describe 'driver.rb' do
     # t 'app_wait_activity attr' do # iOS does not have this attr
 
     t 'sauce_username attr' do
-      sauce_username.must_be_nil
+      if is_sauce
+        sauce_username.must_equal 'appiumci'
+      else
+        sauce_username.must_be_nil
+      end
     end
 
     t 'sauce_access_key attr' do
