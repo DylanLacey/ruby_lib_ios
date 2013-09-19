@@ -18,7 +18,7 @@ describe 'common/element/button' do
 
   t 'button' do
     # by index
-    button(1).name.must_equal gray
+    button(2).name.must_equal gray
 
     # by name contains
     button('ray').name.must_equal gray

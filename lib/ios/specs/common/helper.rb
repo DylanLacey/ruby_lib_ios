@@ -75,7 +75,7 @@ describe 'common/helper.rb' do
   end
 
   t 'ele_index' do
-    ele_index('text', 1).name.must_equal uibutton_text
+    ele_index('text', 2).name.must_equal uibutton_text
   end
 
   t 'find_eles' do
