@@ -1,17 +1,5 @@
 # encoding: utf-8
 describe 'ios/element/textfield' do
-
-  def go_to_textfields
-    screen.must_equal catalog
-    wait_true { s_text('textfield').click; screen == 'TextFields' } # wait for screen transition
-    screen.must_equal 'TextFields'
-  end
-
-  def leave_textfields
-    back
-    screen.must_equal catalog
-  end
-
   before_first { go_to_textfields }
   after_last { set_wait 30 }
 

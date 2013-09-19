@@ -17,6 +17,16 @@ a = OpenStruct.new x: 'ok'
 raise 'x issue' unless a.x == 'ok'
 
 ## common methods
+def leave_textfields
+  back
+  screen.must_equal catalog
+end
+
+def go_to_textfields
+  screen.must_equal catalog
+  wait_true { s_text('textfield').click; screen == 'TextFields' } # wait for screen transition
+  screen.must_equal 'TextFields'
+end
 
 def screen
   $driver.find_element(:tag_name, 'navigationBar').name
@@ -58,9 +68,11 @@ end
 trace_files = []
 
 if one_test
-  one_test = File.join(dir, test_dir + 'specs/',
+  # ensure ext is .rb
+  one_test = File.join(File.dirname(one_test),
                        File.basename(one_test, '.*') + '.rb')
-  raise "Test #{one_test} does not exist." unless File.exists?(one_test)
+  one_test = File.join(dir, test_dir + 'specs/', one_test)
+  raise "\nTest #{one_test} does not exist.\n" unless File.exists?(one_test)
   # require support (common.rb)
   Dir.glob(File.join dir, test_dir + '/*.rb') do |test|
     require test
