@@ -83,7 +83,6 @@ trace_files.map! do |f|
   f = File.join(File.dirname(f), File.basename(f, '.*') + '.rb')
   f
 end
-puts "Tracing: #{trace_files}"
 
 # Exit after tests.
 Minitest.after_run { $driver.x if $driver }
