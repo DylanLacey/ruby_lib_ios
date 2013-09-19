@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-describe 'driver.rb' do
+describe 'driver' do
   before_first { screen.must_equal catalog }
 
   def is_sauce
@@ -63,7 +63,11 @@ describe 'driver.rb' do
     end
 
     t 'sauce_access_key attr' do
-      sauce_access_key.must_be_nil
+      if is_sauce
+        sauce_access_key.must_match /\h{8}-\h{4}-\h{4}-\h{4}-\h{12}/
+      else
+        sauce_access_key.must_be_nil
+      end
     end
 
     t 'port attr' do
