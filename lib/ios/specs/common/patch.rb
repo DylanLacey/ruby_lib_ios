@@ -39,6 +39,8 @@ describe 'common/patch.rb' do
         find_element(:css, 'ok')
       rescue Exception => e;
         value = e.message
+      ensure
+        set_wait
       end
       value.must_equal "Sorry, we don't support the 'css selector' locator strategy yet"
     end

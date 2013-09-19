@@ -122,6 +122,8 @@ describe 'driver.rb' do
 =end
     t 'default_wait' do
       default_wait.must_equal 1
+      # let's set the wait to 30
+      set_wait 30
     end
 
     # returns true unless an error is raised
