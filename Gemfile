@@ -1,2 +1,2 @@
 source 'https://rubygems.org'
-gem 'test_runner', '= 0.9.19'
+gem 'test_runner', '= 0.9.20'
