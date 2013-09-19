@@ -40,7 +40,7 @@ describe 'ios/element/textfield' do
   end
 
   t 'textfield' do
-    textfield(0).text.must_equal(enter_text)
+    textfield(1).text.must_equal(enter_text)
     textfield(enter_text).text.must_equal(enter_text)
   end
 
@@ -76,7 +76,7 @@ describe 'ios/element/textfield' do
   end
 
   t 'no textfield' do
-    must_raise_no_element { textfield(0) }
+    must_raise_no_element { textfield(1) }
     must_raise_no_element { textfield('does not exist') }
   end
 
