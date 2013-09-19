@@ -113,9 +113,20 @@ describe 'driver' do
       }
     end
 
+    def expected_ios_capabilities_sauce
+      {
+          platform: 'Mac 10.8',
+          version: '6.1',
+          device: 'iPhone Simulator',
+          name: 'appium_lib_ios',
+          app: 'sauce-storage:UICatalog6.1.app.zip'
+      }
+    end
+
     # capabilities calls ios_capabilities when device is :ios
     t 'capabilities' do
-      exp = expected_ios_capabilities
+      exp = is_sauce ? expected_ios_capabilities_sauce :
+      expected_ios_capabilities
 
       act = capabilities
       act[:app] = File.basename act[:app]
