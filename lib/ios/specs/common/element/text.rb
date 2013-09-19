@@ -29,8 +29,10 @@ describe 'common/element/text' do
 
   t 's_text_exact' do
     # should fail
+    set_wait 0
     act = begin; s_text_exact 'mos'; rescue; end
     act.must_be_nil
+    set_wait
 
     # should pass
     s_text_exact(ui_catalog).text.must_equal ui_catalog

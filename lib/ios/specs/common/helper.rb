@@ -90,12 +90,14 @@ describe 'common/helper.rb' do
   t 'find_eles_by_text' do
     # '!' clears the input buffer in Pry so make sure there's
     # no space after the !
+    set_wait 1
     # empty array returned when no match
     found = !find_eles_by_text(:text, uibutton_text).empty?
     found.must_equal true
 
     found = !find_eles_by_text(:text, 'zz').empty?
     found.must_equal false
+    set_wait
   end
 
   t 'find_ele_by_attr_include' do

@@ -13,6 +13,7 @@ describe 'ios/element/textfield' do
   end
 
   before_first { go_to_textfields }
+  after_last { set_wait 30 }
 
   t 'textfields' do
     exp = ['<enter text>', '<enter text>', '<enter text>', '<enter password>']
@@ -58,6 +59,7 @@ describe 'ios/element/textfield' do
 
   # test textfield methods with no textfields
   t 'no textfields' do
+    set_wait 1
     # must leave textfield screen for the rest of the tests
     leave_textfields
     textfields.must_equal []

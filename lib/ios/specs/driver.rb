@@ -20,7 +20,7 @@ describe 'driver.rb' do
     #            :app_package, :app_activity, :app_wait_activity,
     #            :sauce_username, :sauce_access_key, :port, :os, :debug
     t 'default_wait attr' do
-      default_wait.must_equal 1
+      default_wait.must_equal 30 # set in run.rb
     end
 
     t 'app_path attr' do
