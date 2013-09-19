@@ -3,10 +3,14 @@
 describe 'driver.rb' do
   before_first { screen.must_equal catalog }
 
+  def is_sauce
+    ENV['UPLOAD_FILE'] && ENV['SAUCE_USERNAME']
+  end
+
   t 'load_appium_txt' do
     # skip this test if we're using Sauce
     # the storage API doesn't have an on disk file
-    skip if ENV['UPLOAD_FILE'] && ENV['SAUCE_USERNAME']
+    skip if is_sauce
     # __FILE__ is '(eval)' so use env var set by the Rakefile
     path = ENV['APPIUM_TXT']
     puts "appium.txt path in test is: #{path}"
@@ -25,13 +29,21 @@ describe 'driver.rb' do
 
     t 'app_path attr' do
       apk_name = File.basename app_path
-      valid = apk_name == 'sauce-storage:UICatalog6.1.app.zip' || apk_name == 'UICatalog.app'
-      valid.must_equal true
+
+      if is_sauce
+        apk_name.must_equal 'sauce-storage:UICatalog6.1.app.zip'
+      else
+        apk_name.must_equal 'UICatalog.app'
+      end
     end
 
     # Only used for Sauce Labs
     t 'app_name attr' do
-      app_name.must_be_nil
+      if is_sauce
+        app_name.must_equal 'appium_lib_ios'
+      else
+        app_name.must_be_nil
+      end
     end
 
     t 'device attr' do
