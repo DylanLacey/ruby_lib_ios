@@ -121,9 +121,7 @@ describe 'driver.rb' do
     set_wait # posts value to server, it's not stored locally
 =end
     t 'default_wait' do
-      default_wait.must_equal 1
-      # let's set the wait to 30
-      set_wait 30
+      default_wait.must_equal 30 # set in run.rb
     end
 
     # returns true unless an error is raised
