@@ -96,7 +96,11 @@ describe 'driver' do
     end
 
     t 'server_version' do
-      server_version.must_match /(\d+)\.(\d+).(\d+)/
+      if is_sauce
+        server_version.must_match 'Sauce OnDemand'
+      else
+        server_version.must_match /(\d+)\.(\d+).(\d+)/
+      end
     end
 
     def expected_ios_capabilities
