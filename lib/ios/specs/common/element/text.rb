@@ -37,4 +37,12 @@ describe 'common/element/text' do
     # should pass
     s_text_exact(ui_catalog).text.must_equal ui_catalog
   end
+
+  t 's_texts' do
+    s_texts('uses').length.must_equal 7
+  end
+
+  t 's_texts_exact' do
+    s_texts_exact('UICatalog').length.must_equal 1
+  end
 end

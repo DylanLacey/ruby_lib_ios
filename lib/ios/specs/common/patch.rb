@@ -24,8 +24,8 @@ describe 'common/patch.rb' do
 
     t 'location_rel' do
       loc = first_s_text.location_rel
-      loc.x.class.must_equal Float
-      loc.y.class.must_equal Float
+      loc.x.class.must_equal String
+      loc.y.class.must_equal String
     end
   end
 
