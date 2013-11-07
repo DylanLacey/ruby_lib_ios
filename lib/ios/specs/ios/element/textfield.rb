@@ -4,8 +4,8 @@ describe 'ios/element/textfield' do
   after_last { set_wait 30 }
 
   t 'textfields' do
-    exp = ['<enter text>', '<enter text>', '<enter text>', '<enter password>']
-    textfields.must_equal exp
+    textfields.include?('<enter text>').must_equal true
+    textfields.include?('<enter password>').must_equal true
   end
 
   t 'e_textfields' do

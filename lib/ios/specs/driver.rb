@@ -23,8 +23,16 @@ describe 'driver' do
     # attr_reader :default_wait, :app_path, :app_name, :selendroid,
     #            :app_package, :app_activity, :app_wait_activity,
     #            :sauce_username, :sauce_access_key, :port, :os, :debug
+    t 'no_wait' do
+      no_wait
+      default_wait.must_equal 0
+      set_wait 30
+    end
+
     t 'default_wait attr' do
-      default_wait.must_equal 30 # set in run.rb
+      set_wait 31 # set wait and no_wait update default_wait
+      default_wait.must_equal 31
+      set_wait 30
     end
 
     t 'app_path attr' do
@@ -168,7 +176,7 @@ describe 'driver' do
 
     # any script
     t 'execute_script' do
-      execute_script %q(au.mainApp.getFirstWithPredicate("value contains[c] 'button'");)
+      execute_script %q(au.mainApp.getFirstWithPredicate("name contains[c] 'button'");)
     end
 
     # any mobile method

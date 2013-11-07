@@ -4,7 +4,7 @@ describe 'common/element/text' do
   before_first { screen.must_equal catalog }
   t 's_texts' do
     exp = [ 'UICatalog', 'Buttons, Various uses of UIButton', 'Controls, Various uses of UIControl', 'TextFields, Uses of UITextField', 'SearchBar, Use of UISearchBar', 'TextView, Use of UITextField', 'Pickers, Uses of UIDatePicker, UIPickerView', 'Images, Use of UIImageView', 'Web, Use of UIWebView', 'Segment, Various uses of UISegmentedControl', 'Toolbar, Uses of UIToolbar', 'Alerts, Various uses of UIAlertView, UIActionSheet', 'Transitions, Shows UIViewAnimationTransitions']
-    s_texts.must_equal exp
+    s_texts_names.must_equal exp
   end
 
   t 'e_s_texts' do
@@ -20,11 +20,13 @@ describe 'common/element/text' do
   end
 
   t 'last_s_text' do
-    last_s_text.text.must_equal 'Transitions, Shows UIViewAnimationTransitions'
+    last_s_text.text.must_equal ''
+    last_s_text.name.must_equal 'Transitions, Shows UIViewAnimationTransitions'
   end
 
   t 's_text' do
-    s_text('mat').text.must_equal 'Transitions, Shows UIViewAnimationTransitions'
+    s_text('mat').text.must_equal ''
+    s_text('mat').name.must_equal 'Transitions, Shows UIViewAnimationTransitions'
   end
 
   t 's_text_exact' do

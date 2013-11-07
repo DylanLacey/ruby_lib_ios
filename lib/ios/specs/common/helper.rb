@@ -52,7 +52,7 @@ describe 'common/helper.rb' do
     wait_true { s_text('buttons').click; tag('navigationBar').name == 'Buttons' }
     tag('navigationBar').name.must_equal 'Buttons'
     # go back
-    back
+    back_click
     # start page
     tag('navigationBar').name.must_equal 'UICatalog'
   end
@@ -102,7 +102,10 @@ describe 'common/helper.rb' do
 
   t 'find_ele_by_attr_include' do
     el_text = find_ele_by_attr_include(:text, :text, 'button').text
-    el_text.must_equal uibutton_text
+    el_text.must_equal ''
+
+    el_name = find_ele_by_attr_include(:text, :name, 'button').name
+    el_name.must_equal uibutton_text
   end
 
   t 'find_eles_by_attr_include' do
@@ -111,7 +114,10 @@ describe 'common/helper.rb' do
   end
 
   t 'find_ele_by_text_include' do
-    el_text = find_ele_by_text_include(:text, 'bu').text
+    el = find_ele_by_text_include(:text, 'bu')
+    el_text = el.text
+    el_text = el.name if el_text.nil? || el_text.empty?
+
     el_text.must_equal uibutton_text
   end
 
@@ -125,7 +131,9 @@ describe 'common/helper.rb' do
   end
 
   t 'last_ele' do
-    last_ele(:text).text.must_equal 'Transitions, Shows UIViewAnimationTransitions'
+    el = last_ele(:text)
+    el.text.must_equal ''
+    el.name.must_equal 'Transitions, Shows UIViewAnimationTransitions'
   end
 
   # t 'source' do # tested by get_source

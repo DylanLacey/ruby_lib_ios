@@ -2,7 +2,7 @@
 describe 'ios/element/generic' do
   before_first do
     screen.must_equal catalog
-    mobile :flick, endX: 0.5, endY: 0.9 # scroll up
+    wait { mobile :flick, endX: 0.5, endY: 0.9 } # scroll up
     sleep 1
   end
 
@@ -15,19 +15,34 @@ describe 'ios/element/generic' do
   end
 
   t 'find' do
-    find(search_text).text.must_equal exp_text
+    el = find search_text
+    el_text = el.text
+    el = el_text.empty? ? el.name : el_text
+    el.must_equal exp_text
   end
 
   t 'finds' do
-    finds(search_text).first.text.must_equal exp_text
+    el = finds(search_text).first
+    el_text = el.text
+    el = el_text.empty? ? el.name : el_text
+
+    el.must_equal exp_text
   end
 
   t 'text' do
-    text(search_text).text.must_equal exp_text
+    el = text 'rows'
+    el_text = el.text
+    el = el_text.empty? ? el.name : el_text
+
+    el.include?('rows').must_equal true
   end
 
   t 'texts' do
-    texts(search_text).first.text.must_equal exp_text
+    el = texts('rows').first
+    el_text = el.text
+    el = el_text.empty? ? el.name : el_text
+
+    el.include?('rows').must_equal true
   end
 
   t 'name' do

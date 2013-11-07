@@ -4,12 +4,12 @@ describe 'common/element/button' do
   before_first do
     screen.must_equal catalog
     # nav to buttons activity
-    text('buttons').click
+    wait { name('buttons').click }
   end
 
   after_last do
     # nav back to start
-    back
+    back_click
   end
 
   def gray
