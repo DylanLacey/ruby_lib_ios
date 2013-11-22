@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+# rake ios[driver]
 describe 'driver' do
   before_first { screen.must_equal catalog }
 
@@ -161,10 +161,29 @@ describe 'driver' do
     screenshot   # this is slow and already tested by Appium
     driver_quit  # tested by restart
     start_driver # tested by restart
-    no_wait  # posts value to server, it's not stored locally
-    set_wait # posts value to server, it's not stored locally
 =end
+    t 'set_wait' do
+      # fill the @last_waits array with: [30, 30]
+      set_wait(30).must_equal(30)
+      set_wait(30).must_equal(30)
+
+      # verify set_wait with no args works correctly
+      set_wait.must_equal(30)
+      set_wait(30).must_equal(30)
+      set_wait.must_equal(30)
+
+      set_wait(2).must_equal(2)
+      set_wait.must_equal(30)
+      set_wait(3).must_equal(3)
+      set_wait.must_equal(2)
+
+      set_wait(2).must_equal(2)
+      set_wait(3).must_equal(3)
+      set_wait.must_equal(2)
+    end
+
     t 'default_wait' do
+      set_wait 30
       default_wait.must_equal 30 # set in run.rb
     end
 
