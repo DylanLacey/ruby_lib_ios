@@ -170,4 +170,12 @@ describe 'common/helper.rb' do
     end
     message.must_equal 'Invalid id `android:id/text1`'
   end
+
+  t 'tag' do
+    tag('UIATableCell').name.must_equal 'Buttons, Various uses of UIButton'
+  end
+
+  t 'tags' do
+    tags('UIATableCell').length.must_equal 12
+  end
 end

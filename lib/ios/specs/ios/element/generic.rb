@@ -52,4 +52,8 @@ describe 'ios/element/generic' do
   t 'names' do
     names(search_text).first.name.must_equal exp_text
   end
+
+  t 'name_exact' do
+    name_exact(exp_text).name.must_equal exp_text
+  end
 end

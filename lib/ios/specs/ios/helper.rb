@@ -14,8 +14,9 @@ describe 'ios/helper' do
     find_2_eles_attr(:text, :text, :text).length.must_equal 26
   end
 
-  t 'password' do
-    password.must_equal '•'
+  t 'ios_password' do
+    ios_password.must_equal '•'
+    ios_password(2).must_equal '•' * 2
   end
 
   # t 'get_page' do # prints to stdout
