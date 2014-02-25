@@ -29,7 +29,7 @@ describe 'ios/helper' do
   # t 'page' do # prints to stdout
 
   t 'source_window' do
-    source_window.length.must_equal 10
+    source_window.length.must_equal 11
   end
 
   # t 'page_window' do # prints to stdout

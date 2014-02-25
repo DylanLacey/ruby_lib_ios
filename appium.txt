@@ -1,2 +1,2 @@
 DEVICE="ios"
-APP_PATH="UICatalog.app"
+APP_PATH="./UICatalog.app"
