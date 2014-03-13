@@ -196,7 +196,7 @@ describe 'driver' do
 
     # any script
     t 'execute_script' do
-      execute_script %q(au.mainApp.getFirstWithPredicate("name contains[c] 'button'");)
+      execute_script %q(au.mainApp().getFirstWithPredicate("name contains[c] 'button'");)
     end
 
     # any mobile method
