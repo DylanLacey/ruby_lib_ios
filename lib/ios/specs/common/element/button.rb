@@ -18,14 +18,14 @@ describe 'common/element/button' do
 
   t 'button' do
     # by index
-    button(2).name.must_equal gray
+    button(3).name.must_equal gray
 
     # by name contains
     button('ray').name.must_equal gray
   end
 
   t 'buttons' do
-    exp = ['Back', 'Gray', 'Right pointing arrow', 'Rounded', 'More info', 'More info', 'More info', 'Add contact']
+    exp = ['Back', 'Back', 'Gray', 'Right pointing arrow', 'Rounded', 'Custom Text', 'More info', 'More info', 'More info', 'Add contact']
     buttons.must_equal exp
   end
 
@@ -46,7 +46,7 @@ describe 'common/element/button' do
   end
 
   t 'e_buttons' do
-    e_buttons.length.must_equal 8
+    e_buttons.length.must_equal 10
   end
 
   t 'button_num' do

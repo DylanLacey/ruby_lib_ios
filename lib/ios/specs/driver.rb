@@ -55,7 +55,7 @@ describe 'driver' do
     end
 
     t 'device attr' do
-      device.must_equal 'iPhone Simulator'
+      device.must_equal 'ios'
     end
 
     # t 'app_package attr' do # iOS does not have this attr
@@ -113,12 +113,11 @@ describe 'driver' do
 
     def expected_ios_capabilities
       {
-          platform: 'OS X 10.9',
-          version: '7',
-          device: 'iPhone Simulator',
-          name: 'Ruby Console iOS Appium',
+          :platform             => 'OS X 10.9',
+          :platformName         => 'ios',
+          :name                 => 'Ruby Console iOS Appium',
           :'device-orientation' => 'portrait',
-          app: 'UICatalog.app'
+          :app                  => 'UICatalog.app'
       }
     end
 

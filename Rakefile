@@ -2,6 +2,8 @@
 require 'rubygems'
 require 'rake'
 
+task :default => :ios
+
 # Run sh and ignore exception
 def run_sh cmd
   begin; sh cmd; rescue; end
