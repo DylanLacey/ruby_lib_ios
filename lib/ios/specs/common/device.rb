@@ -27,4 +27,17 @@ describe 'common/device' do
     launch
     tag('navigationBar').name.must_equal 'UICatalog'
   end
+
+  t 'available_contexts' do
+    available_contexts.must_equal ["NATIVE_APP"]
+  end
+
+  t 'current_context' do
+    current_context.must_equal nil
+  end
+
+  t 'switch_to_default_context' do
+    switch_to_default_context
+    current_context.must_equal nil
+  end
 end
